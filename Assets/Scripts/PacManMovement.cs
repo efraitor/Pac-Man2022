@@ -53,6 +53,12 @@ public class PacManMovement : MonoBehaviour
                 destination = (Vector2)this.transform.position + Vector2.left;
             }
         }
+        //Con esto sabremos hacia donde está apuntando PacMan, sacaremos una X y una Y
+        Vector2 dir = destination - (Vector2)this.transform.position;
+        //Dependiendo del valor de dir.x, hacemos que PacMan se vea hacia la izquierda o hacia la derecha
+        GetComponent<Animator>().SetFloat("DirX", dir.x); //Accedemos al Animator de PacMan y aplicando un cambio en su parámetro DirX, conseguimos el cambio de animación
+        //Dependiendo del valor de dir.y. hacemos que PacMan se vea hacia arriba o hacia abajo
+        GetComponent<Animator>().SetFloat("DirY", dir.y); //Accedemos al Animator de PacMan y aplicando un cambio en su parámetro DirY, conseguimos el cambio de animación
     }
 
     /* Método que dada una posible dirección de movimiento
