@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PacDots : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //Método para conocer cuando un objeto se ha metido en la zona de trigger de los PacDots
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
+        //Si el objeto que ha entrado en el trigger está etiquetado como Player
+        if (collision.tag == "Player")
+        {
+            //Podría sumar puntos
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            //Recogemos el objeto PacDot concreto, en nuestro caso lo eliminamos
+            Destroy(this.gameObject);
+        }
     }
 }
