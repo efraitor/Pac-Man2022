@@ -56,4 +56,15 @@ public class GhostMovement : MonoBehaviour
             GetComponent<Rigidbody2D>().MovePosition(newPos);
         }
     }
+
+    //Reacción de los fantasmas al choque contra otros objetos
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Si el objeto contra el que ha chocado está etiquetado como Player(PacMan)
+        if (collision.tag == "Player")
+        {
+            //Destruye a PacMan(obteniendo de este gameObject, su código para poder coger de este el método PacManDead())
+            
+        }
+    }
 }
