@@ -17,6 +17,21 @@ public class GhostMovement : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        //Si PacMan sigue siendo invencible
+        if (GameManager.sharedInstance.invincibleTime > 0)
+        {
+            //El fantasma cambia a azul
+            GetComponent<Animator>().SetBool("PacManInvincible", true);
+        }
+        else
+        {
+            //El fantasma queda como al principio
+            GetComponent<Animator>().SetBool("PacManInvincible", false);
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -64,7 +79,7 @@ public class GhostMovement : MonoBehaviour
         if (collision.tag == "Player")
         {
             //Destruye a PacMan(obteniendo de este gameObject, su código para poder coger de este el método PacManDead())
-            
+            collision.gameObject.GetComponent<PacManMovement>().PacManDead();
         }
     }
 }

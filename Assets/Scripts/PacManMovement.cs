@@ -88,4 +88,11 @@ public class PacManMovement : MonoBehaviour
             return false;
         }
     }
+
+    //Método para hacer que PacMan muera
+    public void PacManDead()
+    {
+        //Destruimos a PacMan
+        Destroy(this.gameObject);
+    }
 }
